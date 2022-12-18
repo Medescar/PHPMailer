@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This example shows how to use POP-before-SMTP for authentication.
  * POP-before-SMTP is a very old technology that is hardly used any more.
@@ -23,9 +24,9 @@ $mail = new PHPMailer(true);
 try {
     $mail->isSMTP();
     //Enable SMTP debugging
-    // SMTP::DEBUG_OFF = off (for production use)
-    // SMTP::DEBUG_CLIENT = client messages
-    // SMTP::DEBUG_SERVER = client and server messages
+    //SMTP::DEBUG_OFF = off (for production use)
+    //SMTP::DEBUG_CLIENT = client messages
+    //SMTP::DEBUG_SERVER = client and server messages
     $mail->SMTPDebug = SMTP::DEBUG_SERVER;
     //Set the hostname of the mail server
     $mail->Host = 'mail.example.com';

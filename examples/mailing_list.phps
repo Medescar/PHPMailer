@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This example shows how to send a message to a whole list of recipients efficiently.
  */
@@ -21,7 +22,7 @@ $body = file_get_contents('contents.html');
 $mail->isSMTP();
 $mail->Host = 'smtp.example.com';
 $mail->SMTPAuth = true;
-$mail->SMTPKeepAlive = true; // SMTP connection will not close after each email sent, reduces SMTP overhead
+$mail->SMTPKeepAlive = true; //SMTP connection will not close after each email sent, reduces SMTP overhead
 $mail->Port = 25;
 $mail->Username = 'yourname@example.com';
 $mail->Password = 'yourpassword';
@@ -57,7 +58,8 @@ foreach ($result as $row) {
 
     try {
         $mail->send();
-        echo 'Message sent to :' . htmlspecialchars($row['full_name']) . ' (' . htmlspecialchars($row['email']) . ')<br>';
+        echo 'Message sent to :' . htmlspecialchars($row['full_name']) . ' (' .
+            htmlspecialchars($row['email']) . ')<br>';
         //Mark it as sent in the DB
         mysqli_query(
             $mysql,

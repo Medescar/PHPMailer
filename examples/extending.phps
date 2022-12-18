@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This example shows how to extend PHPMailer to simplify your coding.
  * If PHPMailer doesn't do something the way you want it to, or your code
@@ -17,7 +18,7 @@ require '../vendor/autoload.php';
 /**
  * Use PHPMailer as a base class and extend it
  */
-class myPHPMailer extends PHPMailer
+class MyPHPMailer extends PHPMailer
 {
     /**
      * myPHPMailer constructor.
@@ -50,7 +51,7 @@ class myPHPMailer extends PHPMailer
     {
         $this->Subject = '[Yay for me!] ' . $this->Subject;
         $r = parent::send();
-        echo 'I sent a message with subject '. $this->Subject;
+        echo 'I sent a message with subject ' . $this->Subject;
 
         return $r;
     }
@@ -60,12 +61,12 @@ class myPHPMailer extends PHPMailer
 try {
     //Instantiate your new class, making use of the new `$body` parameter
     $mail = new myPHPMailer(true, '<strong>This is the message body</strong>');
-    // Now you only need to set things that are different from the defaults you defined
+    //Now you only need to set things that are different from the defaults you defined
     $mail->addAddress('jane@example.com', 'Jane User');
     $mail->Subject = 'Here is the subject';
     $mail->addAttachment(__FILE__, 'myPHPMailer.php');
-    $mail->send(); //no need to check for errors - the exception handler will do it
+    $mail->send(); //No need to check for errors - the exception handler will do it
 } catch (Exception $e) {
     //Note that this is catching the PHPMailer Exception class, not the global \Exception type!
-    echo 'Caught a '. get_class($e) .': '. $e->getMessage();
+    echo 'Caught a ' . get_class($e) . ': ' . $e->getMessage();
 }
